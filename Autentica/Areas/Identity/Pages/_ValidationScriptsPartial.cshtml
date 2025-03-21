@@ -1,0 +1,165 @@
+﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<style>
+
+
+    body {
+        background-color: #fff5e1; /* Cor de fundo clara para criar sensação suave */
+        font-family: 'Quicksand', sans-serif; /* Fonte para o corpo */
+        color: #333;
+    }
+
+    h1, h2 {
+        font-family: 'Pacifico', cursive; /* Fonte para cabeçalhos */
+        color: #ff6f61; /* Coral suave */
+    }
+
+    a {
+        color: #ff8a00; /* Cor vibrante para links */
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    header {
+        background: url('path/to/your/beach-image.jpg') no-repeat center center;
+        background-size: cover;
+        padding: 90px;
+        color: white;
+    }
+
+    footer {
+        background-color: #00bcd4; /* Azul tropical */
+        color: white;
+        text-align: center;
+        margin-bottom: 40px padding: 30px;
+    }
+
+    button {
+        background-color: #ff6f61;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-family: 'Lobster', cursive;
+    }
+
+        button:hover {
+            background-color: #f1c40f;
+        }
+
+    .section {
+        background-color: #f9f3d7; /* Fundo suave para seções */
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+
+
+
+
+    /* Estilo para os campos de entrada */
+    .form-floating {
+        position: relative;
+        margin-bottom: 1.5rem; /* Espaçamento entre os campos */
+    }
+
+        .form-floating input {
+            font-family: 'Quicksand', sans-serif; /* Fonte suave e amigável */
+            font-size: 1rem; /* Tamanho de fonte confortável */
+            padding: 10px; /* Espaçamento interno */
+            border-radius: 8px; /* Bordas arredondadas */
+            border: 2px solid #ff6f61; /* Borda coral suave */
+            background-color: #fff5e1; /* Cor de fundo tropical e suave */
+            width: 100%; /* Garante que o campo ocupe toda a largura disponível */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+        }
+
+            .form-floating input:focus {
+                border-color: #00bcd4; /* Altera a cor da borda ao focar */
+                box-shadow: 0 0 5px rgba(0, 188, 212, 0.7); /* Adiciona um brilho suave quando o campo está em foco */
+            }
+
+        .form-floating label {
+            font-family: 'Quicksand', sans-serif; /* Fonte para o label */
+            font-size: 0.9rem; /* Tamanho confortável para o label */
+            color: #ff6f61; /* Cor para o texto do label */
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            transition: 0.3s ease; /* Suaviza o movimento ao alterar o foco */
+        }
+
+        .form-floating input:focus + label {
+            top: -10px;
+            font-size: 0.8rem; /* Diminui o tamanho quando o campo é focado */
+            color: #00bcd4; /* Altera a cor do label quando o campo está em foco */
+        }
+
+    /* Estilo para mensagens de erro */
+    .text-danger {
+        font-size: 0.85rem;
+        color: #ff6347; /* Cor mais intensa para as mensagens de erro */
+    }
+
+    /* Estilo para o botão */
+    button {
+        background-color: #ff6f61; /* Cor de fundo coral suave */
+        border: none;
+        color: white;
+        font-family: 'Quicksand', sans-serif;
+        font-size: 1.1rem; /* Tamanho de fonte do botão */
+        padding: 12px 20px; /* Espaçamento interno do botão */
+        border-radius: 8px; /* Bordas arredondadas */
+        width: 100%; /* Botão ocupa toda a largura disponível */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Animações suaves */
+    }
+
+        button:hover {
+            background-color: #ff8a00; /* Cor do botão quando em hover */
+            transform: scale(1.05); /* Aumenta o botão um pouco quando o cursor está sobre ele */
+        }
+
+        button:focus {
+            outline: none; /* Remove o contorno padrão */
+            box-shadow: 0 0 5px rgba(0, 188, 212, 0.7); /* Adiciona um brilho suave no botão quando está em foco */
+        }
+
+    /* Estilo para o separador <hr> */
+    hr {
+        border: 0;
+        height: 2px;
+        background: #00bcd4; /* Cor do separador para combinar com o tema */
+        margin: 20px 0;
+    }
+
+    /* Estilo para o botão de registro */
+    #registerSubmit {
+        background-color: #ff6f61; /* Cor de fundo coral suave */
+        border: none;
+        color: white; /* Cor do texto do botão */
+        font-family: 'Quicksand', sans-serif; /* Fonte amigável */
+        font-size: 1.2rem; /* Tamanho de fonte confortável */
+        padding: 14px 20px; /* Espaçamento interno */
+        border-radius: 8px; /* Bordas arredondadas */
+        width: 100%; /* Botão ocupa toda a largura disponível */
+        cursor: pointer; /* Muda o cursor para indicar que é clicável */
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Animação suave para cor de fundo e efeito hover */
+    }
+
+        /* Efeito hover para o botão de registro */
+        #registerSubmit:hover {
+            background-color: #ff8a00; /* Cor do botão quando em hover */
+            transform: scale(1.05); /* Aumenta o tamanho do botão ao passar o mouse */
+        }
+
+        /* Efeito de foco (quando o botão é clicado) */
+        #registerSubmit:focus {
+            outline: none; /* Remove o contorno padrão */
+            box-shadow: 0 0 5px rgba(0, 188, 212, 0.7); /* Adiciona um brilho suave ao botão quando ele é clicado */
+        }
+
+</style>
